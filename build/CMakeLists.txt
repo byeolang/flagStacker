@@ -7,4 +7,4 @@ if(NOT build_common_included)
     include(buildCommon)
 endif()
 
-add_subdirectory(${BY_MODULE_DIR} ${CMAKE_BINARY_DIR})
+add_subdirectory(${BY_MODULE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/module)
