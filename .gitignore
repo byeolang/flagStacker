@@ -1,6 +1,8 @@
 CMakeFiles/
 CMakeCache.txt
 Makefile
-cmake_install.cmake
+build/cmake_install.cmake
 bin/
 .codex
+build/.cmake/
+build/module/
