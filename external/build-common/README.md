@@ -27,3 +27,32 @@ After calling it, these variables are available in the caller scope:
 - `BY_VER_PATCH`
 
 Relative paths are resolved from the caller's current CMake list file.
+
+### by_check_dependency
+This checks whether at least one candidate executable exists and, when `MIN_VERSION`
+is provided, whether the detected version is greater than or equal to it.
+
+```cmake
+by_check_dependency(
+    NAMES python3 python
+    MIN_VERSION 3.10.0
+)
+```
+
+Supported arguments:
+- `NAMES`: candidate executable names searched in order.
+- `MIN_VERSION`: minimum accepted version. If omitted, only existence is checked.
+- `VERSION_ARGS`: arguments used to query the version. Default: `--version`.
+
+If the dependency check fails, `by_check_dependency()` stops the current CMake
+run with `message(FATAL_ERROR ...)`.
+
+Example with a custom version flag:
+
+```cmake
+by_check_dependency(
+    NAMES msbuild.exe
+    MIN_VERSION 17.0
+    VERSION_ARGS /version
+)
+```
