@@ -29,9 +29,14 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
+if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
+    message(STATUS "CMAKE_BUILD_TYPE not set, defaulting to Debug")
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+endif()
+
 set(BY_POD_EXTENSION "pod")
 set(BY_DEFAULT_INC_DIR
-    module
+    ${BY_MODULE_DIR}
     /usr/local/include)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${BY_OUTPUT_DIR})
@@ -44,9 +49,9 @@ SET(BY_TESTDATA_PATH ${BY_OUTPUT_DIR}/testdata)
 
 
 if ("${CMAKE_BUILD_TYPE}" STREQUAL Debug)
-    set(CMAKE_IS_DBG 1)
+    set(BY_IS_DBG 1)
 else ("${CMAKE_BUILD_TYPE}" STREQUAL Debug)
-    set(CMAKE_IS_DBG 0)
+    set(BY_IS_DBG 0)
 endif ("${CMAKE_BUILD_TYPE}" STREQUAL Debug)
 
 if(SHOW_CMAKE_VARIABLES)
@@ -114,6 +119,7 @@ if(SHOW_CMAKE_VARIABLES)
     message(STATUS "built modules will be at ${BY_POD_OUTPUT_DIRECTORY}")
     message(STATUS "BY_TESTDATA_PATH: ${BY_TESTDATA_PATH}")
     message(STATUS "all libraries extension is ${BY_LIBRARY_EXTENSION}")
-    message(STATUS "default include directory is ${BY_DEFAULT_INC_DIR}")
+    message(STATUS "BY_DEFAULT_INC_DIR: ${BY_DEFAULT_INC_DIR}")
+    message(STATUS "BY_IS_DBG: ${BY_IS_DBG}")
 endif(SHOW_CMAKE_VARIABLES)
 message("\n")
