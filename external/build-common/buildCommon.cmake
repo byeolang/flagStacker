@@ -12,7 +12,7 @@ set_property(GLOBAL PROPERTY BUILD_COMMON_INCLUDED TRUE)
 #   variables such as CXX_COMPILER_ID and COMPILER_IS_GNUCC remain unchanged.
 #   to resolve this issue, you must determine which compiler to use before calling
 #   the project() function.
-IF(EMSCRIPTEN)
+IF(NOT EMSCRIPTEN)
     set(CMAKE_C_COMPILER "emcc")
     set(CMAKE_CXX_COMPILER "emcc")
 ELSE()
