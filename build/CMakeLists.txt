@@ -16,4 +16,4 @@ if(NOT build_common_included)
     set(VERSION_NAME "") # don't use version name in default
 endif()
 
-add_subdirectory(${BY_MODULE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/module)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../module/ ${CMAKE_CURRENT_BINARY_DIR}/module)
