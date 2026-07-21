@@ -6,3 +6,5 @@ bin/
 .codex
 build/.cmake/
 build/module/
+build/_deps/
+.claude/
