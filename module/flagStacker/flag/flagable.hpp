@@ -1,6 +1,5 @@
 #pragma once
 
-#include "flagStacker/common/typedef.hpp"
 #include "flagStacker/flag/flagArgs.hpp"
 
 namespace by {

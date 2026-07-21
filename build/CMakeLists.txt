@@ -10,6 +10,10 @@ project(flagStacker C CXX)
 
 if(NOT build_common_included)
     include(buildCommon)
+
+    # parse version
+    by_parse_ver("${CMAKE_CURRENT_SOURCE_DIR}/../CHANGELOGS.md")
+    set(VERSION_NAME "") # don't use version name in default
 endif()
 
 add_subdirectory(${BY_MODULE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/module)
