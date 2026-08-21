@@ -7,7 +7,7 @@ FetchContent_Declare(
     indep_dep
     SOURCE_SUBDIR build
     GIT_REPOSITORY https://github.com/byeolang/indep/
-    GIT_TAG v0.1.0
+    GIT_TAG 6d97d43
 )
 FetchContent_MakeAvailable(indep_dep)
 
